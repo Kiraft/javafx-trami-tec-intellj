@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="513.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tramitec.controllers.LoginController">
+   <children>
+      <ImageView fitHeight="522.0" fitWidth="788.0" layoutX="-7.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/EDIFICIO_J.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="51.0" prefWidth="777.0" style="-fx-background-color: #1B396A;">
+         <children>
+            <Text fill="WHITE" layoutX="34.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRAMITES TECNM">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Label layoutX="694.0" layoutY="15.0" text="AYUDA" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <HBox layoutX="117.0" layoutY="119.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="559.0" style="-fx-background-radius: 10;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="364.0" prefWidth="375.0" style="-fx-background-color: #1B396A;" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="103.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icopersona.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: 1B396A;">
+                     <children>
+                        <TextField fx:id="txtUser" onKeyTyped="#eventKey">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <PasswordField fx:id="txtPassword" onKeyTyped="#eventKey">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                        <Label text="Olvidaste tu contraseña?" textFill="WHITE" underline="true">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#eventAction" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #343131;" text="Iniciar Sesion" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="256.0" style="-fx-background-color: FFFFFF;" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="322.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/tecico.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
