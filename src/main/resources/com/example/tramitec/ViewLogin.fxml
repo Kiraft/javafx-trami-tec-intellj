@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="522.0" fitWidth="788.0" layoutX="-7.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/EDIFICIO_J.png" />
+            <Image url="@../../../assets/EDIFICIO_J.png" />
          </image>
       </ImageView>
       <Pane prefHeight="51.0" prefWidth="777.0" style="-fx-background-color: #1B396A;">
@@ -41,7 +41,7 @@
                <children>
                   <ImageView fitHeight="103.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/icopersona.png" />
+                        <Image url="@../../../assets/icopersona.png" />
                      </image>
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: 1B396A;">
@@ -81,9 +81,9 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="256.0" style="-fx-background-color: FFFFFF;" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="322.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="186.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/tecico.png" />
+                        <Image url="@../../../assets/tec%20(1).jpg" />
                      </image>
                   </ImageView>
                </children>

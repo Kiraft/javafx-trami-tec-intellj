@@ -38,7 +38,7 @@
       </Pane>
       <ImageView fx:id="logoHome" fitHeight="78.0" fitWidth="76.0" layoutX="17.0" layoutY="9.0" onMouseClicked="#clickLogo" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/tecnm.png" />
+            <Image url="@../../../assets/tecnm.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" layoutX="26.0" layoutY="259.0" mouseTransparent="true" prefHeight="3.0" prefWidth="530.0" text="UN TRAMITE">

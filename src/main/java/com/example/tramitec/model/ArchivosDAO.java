@@ -76,10 +76,10 @@ public class ArchivosDAO {
             int rowsAffected = pst.executeUpdate();
 
     
-        } catch (HeadlessException | SQLException ex) {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,
                     "Hubo un error de ejecución, posibles errores:\n" + ex.getMessage());
-        } 
+        }
     
     }
 

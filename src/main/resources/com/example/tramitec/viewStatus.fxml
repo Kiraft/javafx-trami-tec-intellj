@@ -180,7 +180,7 @@
       </Pane>
       <ImageView fx:id="logoHome" fitHeight="82.0" fitWidth="102.0" layoutX="38.0" layoutY="9.0" onMouseClicked="#MouseClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/tecnm.png" />
+            <Image url="@../../../assets/tecnm.png" />
          </image>
       </ImageView>
    </children>
