@@ -62,95 +62,49 @@ public class AlumnoDAO {
         return nombre;
     }
 //
-//    public String getCarrera(int matricula){
-//
-//        Connection connection = null;
-//        PreparedStatement pst;
-//        ResultSet rs;
-//        String carrera = null;
-//
-//    	try{
-//
-//            connection = PoolConnection.getInstance().getConnection();
-//
-//            if(connection!=null){
-//
-//                String sql = "SELECT carrera from alumnos WHERE numero_control = ?";
-//
-//                pst = connection.prepareStatement(sql);
-//                pst.setInt(1, matricula);
-//
-//                rs = pst.executeQuery();
-//
-//
-//                if (rs.next()) {
-//                    carrera = rs.getString("carrera");
-//                }
-//
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Hubo un error al conectarse con la base de datos", "ERROR", JOptionPane.ERROR_MESSAGE);
-//            }
-//
-//        }catch(HeadlessException | SQLException ex){
-//            JOptionPane.showMessageDialog(null, "Hubo un error de ejecución, posibles errores:\n"
-//                                              + ex.getMessage());
-//        }finally{
-//
-//            try{
-//                if(connection != null){
-//                    PoolConnection.getInstance().closeConnection(connection);
-//                }
-//            }catch(SQLException ex){
-//                System.err.println(ex.getMessage());
-//            }
-//
-//        }
-//        return carrera;
-//    }
-//
-//    public String getCorreo(int matricula){
-//
-//        Connection connection = null;
-//        PreparedStatement pst;
-//        ResultSet rs;
-//        String correo = null;
-//
-//    	try{
-//
-//            connection = PoolConnection.getInstance().getConnection();
-//
-//            if(connection!=null){
-//
-//                String sql = "SELECT correo from alumnos WHERE numero_control = ?";
-//
-//                pst = connection.prepareStatement(sql);
-//                pst.setInt(1, matricula);
-//
-//                rs = pst.executeQuery();
-//
-//
-//                if (rs.next()) {
-//                    correo = rs.getString("correo");
-//                }
-//
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Hubo un error al conectarse con la base de datos", "ERROR", JOptionPane.ERROR_MESSAGE);
-//            }
-//
-//        }catch(HeadlessException | SQLException ex){
-//            JOptionPane.showMessageDialog(null, "Hubo un error de ejecución, posibles errores:\n"
-//                                              + ex.getMessage());
-//        }finally{
-//
-//            try{
-//                if(connection != null){
-//                    PoolConnection.getInstance().closeConnection(connection);
-//                }
-//            }catch(SQLException ex){
-//                System.err.println(ex.getMessage());
-//            }
-//
-//        }
-//        return correo;
-//    }
+    public String getCarrera(int matricula){
+
+        String carrera = null;
+        String sql = "SELECT carrera from alumnos WHERE numero_control = ?";
+
+    	try(PreparedStatement pst = getConnection().prepareStatement(sql)){
+
+            pst.setInt(1, matricula);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                carrera = rs.getString("carrera");
+            }
+
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Hubo un error de ejecución, posibles errores:\n"
+                                              + ex.getMessage());
+        }
+
+        return carrera;
+    }
+    public String getCorreo(int matricula){
+
+        String sql = "SELECT correo from alumnos WHERE numero_control = ?";
+        String correo = null;
+
+    	try (PreparedStatement pst = getConnection().prepareStatement(sql)){
+
+            pst.setInt(1, matricula);
+
+            ResultSet rs = pst.executeQuery();
+
+
+            if (rs.next()) {
+                correo = rs.getString("correo");
+            }
+
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Hubo un error de ejecución, posibles errores:\n"
+                                              + ex.getMessage());
+        }
+
+        return correo;
+    }
 }
