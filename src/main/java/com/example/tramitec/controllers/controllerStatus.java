@@ -82,7 +82,7 @@ public class controllerStatus implements Initializable{
     @FXML
     void MouseClicked(MouseEvent event) {
         try {
-            StageLoaderMatricula.load("/view/viewLandingPage.fxml", event, matriculaModel);
+            StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -94,21 +94,21 @@ public class controllerStatus implements Initializable{
         
         if (event.getSource().equals(btnMenu)) {
             try {
-                StageLoaderMatricula.load("/view/viewLandingPage.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         } else if(event.getSource().equals(btnSubir)) {
             try {
-                StageLoaderMatricula.load("/view/viewArchivos.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewArchivos.fxml", event, matriculaModel);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }else if(event.getSource().equals(btnMyDocs)){
             try {
-                StageLoaderMatricula.load("/view/viewStatus.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewStatus.fxml", event, matriculaModel);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -116,14 +116,14 @@ public class controllerStatus implements Initializable{
         }else if(event.getSource().equals(btnFinish)){
             JOptionPane.showMessageDialog(null, "HAZ FINALIZADO TU TRAMITE CON EXITO", null, JOptionPane.WARNING_MESSAGE);
             try {
-                StageLoaderMatricula.load("/view/viewLandingPage.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }else{
             try {
-                StageLoaderMatricula.load("/view/ViewLogin.fxml", event, null);
+                StageLoaderMatricula.load("ViewLogin.fxml", event, null);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

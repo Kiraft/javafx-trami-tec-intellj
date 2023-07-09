@@ -48,7 +48,7 @@ public class LoginController {
                         JOptionPane.showMessageDialog(null, "Datos correctos", null, JOptionPane.WARNING_MESSAGE);
                         try {
                             MatriculaModel matriculaModel = new MatriculaModel(matricula);
-                            StageLoaderMatricula.load("/view/viewLandingPage.fxml", event, matriculaModel);
+                            StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

@@ -8,7 +8,7 @@ public class ConexionDB {
 
     private static String url = "jdbc:mysql://localhost:3306/tramites_tecnm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static String username = "root";
-    private static String password = "";
+    private static String password = "1234";
 
     private static Connection connection;
 

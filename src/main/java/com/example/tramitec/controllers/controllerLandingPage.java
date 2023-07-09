@@ -58,13 +58,13 @@ public class controllerLandingPage implements Initializable {
         if (event.getSource().equals(btnService)) {
             System.out.println(matriculaModel.getMatricula());
             try {
-                StageLoaderMatricula.load("/view/viewStatus.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewStatus.fxml", event, matriculaModel);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (event.getSource().equals(btnCerrar)) {
                 try {
-                    StageLoaderMatricula.load("/view/ViewLogin.fxml", event, null);
+                    StageLoaderMatricula.load("ViewLogin.fxml", event, null);
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -77,7 +77,7 @@ public class controllerLandingPage implements Initializable {
     @FXML
     void clickLogo(MouseEvent event) {
         try {
-            StageLoaderMatricula.load("/view/viewLandingPage.fxml", event, matriculaModel);
+            StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
         } catch (IOException e) {
             e.printStackTrace();
         }
