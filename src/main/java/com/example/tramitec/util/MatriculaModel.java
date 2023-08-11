@@ -1,4 +1,4 @@
-package com.example.tramitec.controllers.util;
+package com.example.tramitec.util;
 
 public class MatriculaModel {
     private int matricula;

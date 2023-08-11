@@ -6,8 +6,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.example.tramitec.controllers.util.MatriculaModel;
-import com.example.tramitec.controllers.util.StageLoaderMatricula;
+import com.example.tramitec.util.MatriculaModel;
+import com.example.tramitec.util.StageLoaderMatricula;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
@@ -18,7 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-public class controllerLandingPage implements Initializable {
+public class LandingPageController implements Initializable {
 
     @FXML
     private Label LabelCarrera;

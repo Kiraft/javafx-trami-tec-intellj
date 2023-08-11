@@ -1,6 +1,6 @@
 package com.example.tramitec.controllers;
-import com.example.tramitec.controllers.util.MatriculaModel;
-import com.example.tramitec.controllers.util.StageLoaderMatricula;
+import com.example.tramitec.util.MatriculaModel;
+import com.example.tramitec.util.StageLoaderMatricula;
 import com.example.tramitec.model.AlumnoDAO;
 
 import java.io.IOException;
@@ -40,8 +40,6 @@ public class LoginController {
                 String pass = txtPassword.getText();
 
                 int state = ADAO.login(matricula, pass);
-                
-                System.out.println(state);
                 
                 if (state != -1) {
                     if (state == 1) {

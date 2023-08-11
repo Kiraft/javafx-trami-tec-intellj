@@ -9,8 +9,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import com.example.tramitec.controllers.util.MatriculaModel;
-import com.example.tramitec.controllers.util.StageLoaderMatricula;
+import com.example.tramitec.util.MatriculaModel;
+import com.example.tramitec.util.StageLoaderMatricula;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +22,7 @@ import javafx.scene.input.MouseEvent;
 import com.example.tramitec.model.ArchivosDAO;
 
 
-public class controllerStatus implements Initializable{
+public class StatusController implements Initializable{
 
     @FXML
     private Label LabelStatus1;

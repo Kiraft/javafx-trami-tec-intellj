@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.example.tramitec.controllers.util.MatriculaModel;
-import com.example.tramitec.controllers.util.StageLoaderMatricula;
+import com.example.tramitec.util.MatriculaModel;
+import com.example.tramitec.util.StageLoaderMatricula;
 
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 import com.example.tramitec.model.AlumnoDAO;
 import com.example.tramitec.model.ArchivosDAO;
 
-public class controllerArchivo implements Initializable {
+public class ArchivoController implements Initializable {
 
     @FXML
     private ImageView imgtrash1;

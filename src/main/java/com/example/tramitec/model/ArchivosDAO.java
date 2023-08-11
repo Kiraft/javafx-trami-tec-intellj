@@ -14,6 +14,7 @@ public class ArchivosDAO {
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
+    
     private int getId(int matricula) {
 
 
@@ -54,7 +55,7 @@ public class ArchivosDAO {
             pst.setString(4, "subido");
             pst.setBoolean(5, false);
 
-            int rowsAffected = pst.executeUpdate();
+            pst.executeUpdate();
             // Hacer algo con rowsAffected si es necesario
     
         } catch (SQLException ex) {
@@ -73,7 +74,7 @@ public class ArchivosDAO {
             pst.setInt(1, id);
             pst.setInt(2, tiposArchivoId);
 
-            int rowsAffected = pst.executeUpdate();
+            pst.executeUpdate();
 
     
         } catch (SQLException ex) {
