@@ -36,7 +36,7 @@ public class LoginController {
             
             if (!txtUser.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
                 
-                int matricula = Integer.parseInt(txtUser.getText());
+                String matricula = txtUser.getText();
                 String pass = txtPassword.getText();
 
                 int state = ADAO.login(matricula, pass);

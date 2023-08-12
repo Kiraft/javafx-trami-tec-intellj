@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="591.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tramitec.controllers.LandingPageController">
+<Pane prefHeight="591.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tramitec.controllers.LandingPageController">
    <children>
       <Label alignment="CENTER" layoutX="71.0" layoutY="182.0" mouseTransparent="true" prefHeight="88.0" prefWidth="444.0" text="SELECCIONA">
          <font>

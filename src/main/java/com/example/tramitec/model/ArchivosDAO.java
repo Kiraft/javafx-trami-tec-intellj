@@ -15,7 +15,7 @@ public class ArchivosDAO {
         return ConexionDB.getInstance();
     }
     
-    private int getId(int matricula) {
+    private int getId(String matricula) {
 
 
 
@@ -24,7 +24,7 @@ public class ArchivosDAO {
 
         try (PreparedStatement pst = getConnection().prepareStatement(sql)) {
 
-            pst.setInt(1, matricula);
+            pst.setString(1, matricula);
 
             ResultSet rs = pst.executeQuery();
 
@@ -40,7 +40,7 @@ public class ArchivosDAO {
         return userId;
     }
     
-    public void setArchivo(int matricula, String ruta_archivo, int tipo_archivo) {
+    public void setArchivo(String matricula, String ruta_archivo, int tipo_archivo) {
 
         int id = getId(matricula);
         String sql = "INSERT INTO archivos (alumno_id, tipos_archivo_id, ruta_archivo, estado, aprovado) " +
@@ -64,7 +64,7 @@ public class ArchivosDAO {
     
     }
 
-    public void deleteArchivo(int matricula, int tiposArchivoId) {
+    public void deleteArchivo(String matricula, int tiposArchivoId) {
 
         int id = getId(matricula);
         String sql = "DELETE FROM archivos WHERE alumno_id = ? AND tipos_archivo_id = ?";
@@ -84,7 +84,7 @@ public class ArchivosDAO {
     
     }
 
-    public String getEstado(int matricula, int tipo_archivo_id) {
+    public String getEstado(String matricula, int tipo_archivo_id) {
 
         int id = getId(matricula);
         String estado = "sin subir";
@@ -109,7 +109,7 @@ public class ArchivosDAO {
         return estado;
     }
 
-    public boolean getStatusAprovado(int matricula, int tipo_archivo_id) {
+    public boolean getStatusAprovado(String matricula, int tipo_archivo_id) {
 
         int id = getId(matricula);
         boolean status = false;
@@ -135,7 +135,7 @@ public class ArchivosDAO {
         return status;
     }
 
-    public String getRutaArchivo(int matricula, int tipo_archivo_id) {
+    public String getRutaArchivo(String matricula, int tipo_archivo_id) {
 
         int id = getId(matricula);
         String ruta = null;

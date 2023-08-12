@@ -1,17 +1,17 @@
 package com.example.tramitec.util;
 
 public class MatriculaModel {
-    private int matricula;
+    private String matricula;
 
-    public MatriculaModel(int matricula) {
+    public MatriculaModel(String matricula) {
         this.matricula = matricula;
     }
 
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 }

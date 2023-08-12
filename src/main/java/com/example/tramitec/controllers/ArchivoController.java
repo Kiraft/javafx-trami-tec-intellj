@@ -133,6 +133,7 @@ public class ArchivoController implements Initializable {
 
     private ArchivosDAO ARDAO = new ArchivosDAO();
 
+
     @FXML
     void MouseClicked(MouseEvent event) {
         try {
@@ -229,15 +230,15 @@ public class ArchivoController implements Initializable {
                 if (file != null) {
                     
                     String nombreArchivo = NombreArchivo + ".pdf";
-                    String nombreAlumno = String.valueOf(ADAO.getNombre(matriculaModel.getMatricula()));
+                    String nombreAlumno = ADAO.getNombre(matriculaModel.getMatricula());
                     
 
-                    FileSystemView fileSystemView = FileSystemView.getFileSystemView();
-                    File carpetaDestino = new File(fileSystemView.getHomeDirectory().getPath() + File.separator + "tramites-tecnm" + File.separator + "docs" + File.separator + nombreAlumno);
-                    // File CarpetaDestino = new File("C:/Users/Kiraft/Desktop/tramites-tecnm/docs/" + nombreAlumno + "/");
+                    // FileSystemView fileSystemView = FileSystemView.getFileSystemView();
+                    // File carpetaDestino = new File(fileSystemView.getHomeDirectory().getPath() + File.separator + "tramites-tecnm" + File.separator + "docs" + File.separator + nombreAlumno);
+                    File carpetaDestino = new File("C:/Users/Kiraft/Desktop/docs-proyecto/" + nombreAlumno + "/");
                     
                     if (!carpetaDestino.exists()) {
-                        carpetaDestino.mkdir();
+                        carpetaDestino.mkdirs();
                     }
                     
                     File Destino = new File(carpetaDestino.getAbsolutePath() + File.separator + nombreArchivo);
