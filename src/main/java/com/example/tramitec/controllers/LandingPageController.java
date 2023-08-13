@@ -56,9 +56,8 @@ public class LandingPageController implements Initializable {
     @FXML
     void clickBtn(ActionEvent event) {
         if (event.getSource().equals(btnService)) {
-            System.out.println(matriculaModel.getMatricula());
             try {
-                StageLoaderMatricula.load("viewStatus.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewMain.fxml", event, matriculaModel);
             } catch (IOException e) {
                 e.printStackTrace();
             }
