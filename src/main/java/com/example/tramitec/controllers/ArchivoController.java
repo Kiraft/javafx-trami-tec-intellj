@@ -8,11 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.example.tramitec.util.AlertUtil;
 import com.example.tramitec.util.MatriculaModel;
 import com.example.tramitec.util.StageLoaderMatricula;
 
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileSystemView;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -20,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
@@ -168,13 +168,13 @@ public class ArchivoController implements Initializable {
                 e.printStackTrace();
             }
         }else if(event.getSource().equals(btnFinish)){
-            JOptionPane.showMessageDialog(null, "HAZ FINALIZADO TU TRAMITE CON EXITO", null, JOptionPane.WARNING_MESSAGE);
             try {
                 StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
+            AlertUtil.showAlert(AlertType.INFORMATION, "Correcto", "TRAMITE REALIZADO CON EXITO");
         }else{
             try {
                 StageLoaderMatricula.load("ViewLogin.fxml", event, null);
@@ -253,7 +253,7 @@ public class ArchivoController implements Initializable {
 
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "Error al guardar archivo en bd", null, JOptionPane.WARNING_MESSAGE);
+                        AlertUtil.showAlert(AlertType.ERROR, "ERROR SUBIDA DE ARHIVO", "Errpr al guardar archivo");
                     }
 
                     
@@ -280,7 +280,7 @@ public class ArchivoController implements Initializable {
             imageView.setDisable(true);
         } else {
             // Error al eliminar el archivo
-            JOptionPane.showMessageDialog(null, "Error al eliminar el archivo", null, JOptionPane.WARNING_MESSAGE);
+            AlertUtil.showAlert(AlertType.ERROR, "ERROR REGISTRO EN BASE DE DATOS", "No se pudo eliminar el archivo");
         }
     }
 

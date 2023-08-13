@@ -64,7 +64,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#eventAction" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #343131;" text="Iniciar Sesion" textFill="WHITE">
+                        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="210.0" style="-fx-background-color: #343131;" text="Iniciar Sesion" textFill="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>

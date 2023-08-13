@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
-
+import com.example.tramitec.util.AlertUtil;
 import com.example.tramitec.util.MatriculaModel;
 import com.example.tramitec.util.StageLoaderMatricula;
 import javafx.application.Platform;
@@ -16,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 
 public class LandingPageController implements Initializable {
@@ -70,7 +70,7 @@ public class LandingPageController implements Initializable {
                     e.printStackTrace();
                 }
         } else {
-            JOptionPane.showMessageDialog(null, "EN DESARROLLO, VUELVA MAS TARDE", null, JOptionPane.WARNING_MESSAGE);
+            AlertUtil.showAlert(AlertType.INFORMATION, "Fuera de servicio", "En desarrollo intentelo mas tarde");
         }
     }
 

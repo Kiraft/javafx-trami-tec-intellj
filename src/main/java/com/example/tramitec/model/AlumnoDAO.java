@@ -30,7 +30,7 @@ public class AlumnoDAO {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Hubo un error de ejecución, posibles errores:\n" + ex.getMessage());
+            System.out.println(ex.getMessage());
         }
 
         return state;
