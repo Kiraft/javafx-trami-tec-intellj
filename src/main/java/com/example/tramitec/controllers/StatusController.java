@@ -82,64 +82,6 @@ public class StatusController implements Initializable{
     }
 
 
-    @FXML
-    void MouseClicked(MouseEvent event) {
-        try {
-            StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void clickBtn(ActionEvent event) {
-        
-        if (event.getSource().equals(btnMenu)) {
-            try {
-                StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        } else if(event.getSource().equals(btnSubir)) {
-            try {
-                StageLoaderMatricula.load("viewArchivos.fxml", event, matriculaModel);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }else if(event.getSource().equals(btnMyDocs)){
-            try {
-                StageLoaderMatricula.load("viewStatus.fxml", event, matriculaModel);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }else if(event.getSource().equals(btnFinish)){
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Correcto");
-            alert.setHeaderText(null);
-            alert.setContentText("TRAMITE REALIZADO CON EXITO");
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                try {
-                    StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }else{
-            try {
-                StageLoaderMatricula.load("ViewLogin.fxml", event, null);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
