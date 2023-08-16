@@ -1,27 +1,19 @@
 package com.example.tramitec.controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
-import com.example.tramitec.util.AlertUtil;
+
 import com.example.tramitec.util.MatriculaModel;
-import com.example.tramitec.util.StageLoaderMatricula;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import com.example.tramitec.model.ArchivosDAO;
 
 

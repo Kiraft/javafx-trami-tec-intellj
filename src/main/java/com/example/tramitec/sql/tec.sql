@@ -8,8 +8,6 @@ USE tramites_tecnm;
 CREATE TABLE alumnos (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(255) NOT NULL,
-    apellido_paterno VARCHAR(255) NOT NULL,
-    apellido_materno VARCHAR(255) NOT NULL,
     numero_control VARCHAR(255) NOT NULL UNIQUE,
     correo VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
@@ -33,20 +31,23 @@ CREATE TABLE archivos (
     FOREIGN KEY (tipos_archivo_id) REFERENCES tipos_archivo(id)
 );
 
-INSERT INTO alumnos (nombres, apellido_paterno, apellido_materno, numero_control, correo, password, carrera) VALUES 
+INSERT INTO alumnos (nombres, numero_control, correo, password, carrera) VALUES 
     (
-        "Jonathan Osvaldo",
-        "Bustamante",
-        "Monroy",   
+        "Jonathan Osvaldo",  
         "21680045", 
         "21680045@cuautla.tecnm.mx", 
         "lolxx4321", 
         "Sistemas Computacionales"
     ),
     (
+        "admin", 
+        "admin",
+        "admin@correo.com", 
+        "admin", 
+        "Sistemas Computacionales"
+    ),
+    (
         "Mayra Abigail", 
-        "Horcasitas", 
-        "Santamaria",
         "21680175",
         "21680175@cuautla.tecnm.mx", 
         "aby4321", 
@@ -54,8 +55,6 @@ INSERT INTO alumnos (nombres, apellido_paterno, apellido_materno, numero_control
     ),
     (
         "Said Alberto", 
-        "Sanchez",
-        "Valle",
         "20680183", 
         "20680183@cuautla.tecnm.mx", 
         "zaidzaid123", 
