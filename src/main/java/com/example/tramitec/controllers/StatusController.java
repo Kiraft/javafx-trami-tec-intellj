@@ -7,13 +7,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-import com.example.tramitec.util.MatriculaModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
+import com.example.tramitec.model.Alumno;
 import com.example.tramitec.model.ArchivosDAO;
 
 
@@ -67,10 +68,10 @@ public class StatusController implements Initializable{
 
     private ArchivosDAO ARDAO = new ArchivosDAO();
 
-    private MatriculaModel matriculaModel;
+    private Alumno alumno;
 
-    public void setMatriculaModel(MatriculaModel matriculaModel) {
-        this.matriculaModel = matriculaModel;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 
 
@@ -92,8 +93,8 @@ public class StatusController implements Initializable{
     
                 // Obtener los estados de subido y aceptado para cada archivo
                 for (int i = 1; i <= totalArchivos; i++) {
-                    estadoList.add(ARDAO.getEstado(matriculaModel.getMatricula(), i));
-                    statusAceptadoList.add(ARDAO.getStatusAprovado(matriculaModel.getMatricula(), i));
+                    estadoList.add(ARDAO.getEstado(alumno.getNumeroControl(), i));
+                    statusAceptadoList.add(ARDAO.getStatusAprovado(alumno.getNumeroControl(), i));
                 }
     
                 // Actualizar los textos y estilos de los labels según los estados

@@ -1,11 +1,8 @@
 package com.example.tramitec.controllers;
 import com.example.tramitec.util.AlertUtil;
-import com.example.tramitec.util.MatriculaModel;
 import com.example.tramitec.util.StageLoaderMatricula;
-import com.example.tramitec.interfaces.Repository;
 import com.example.tramitec.model.Alumno;
-import com.example.tramitec.model.AlumnoDAO;
-import com.example.tramitec.model.AlumnoRepositoryImplement;
+import com.example.tramitec.model.implementations.AlumnoRepositoryImplement;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -21,7 +18,6 @@ import javafx.scene.layout.Pane;
 
 public class LoginController {
 
-    private AlumnoDAO AlumnoDAO = new AlumnoDAO();
 
     @FXML
     private Button btnLogin;
@@ -176,13 +172,13 @@ public class LoginController {
             String matricula = txtUser.getText();
             String pass = txtPassword.getText();
 
-            int state = AlumnoDAO.login(matricula, pass);
+            int state = rp.login(matricula, pass);
             
             if (state != -1) {
                 if (state == 1) {
                     try {
-                        MatriculaModel matriculaModel = new MatriculaModel(matricula);
-                        StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
+                        // MatriculaModel matriculaModel = new MatriculaModel(matricula);
+                        StageLoaderMatricula.load("viewLandingPage.fxml", event, rp.porMatricula(matricula));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

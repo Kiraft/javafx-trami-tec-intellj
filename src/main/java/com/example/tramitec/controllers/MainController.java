@@ -6,7 +6,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.example.tramitec.App;
-import com.example.tramitec.util.MatriculaModel;
+import com.example.tramitec.model.Alumno;
+import com.example.tramitec.util.*;
 import com.example.tramitec.util.StageLoaderMatricula;
 
 import javafx.application.Platform;
@@ -48,17 +49,17 @@ public class MainController implements Initializable{
 
 
 
-    private MatriculaModel matriculaModel;
+    private Alumno alumno;
 
-    public void setMatriculaModel(MatriculaModel matriculaModel) {
-        this.matriculaModel = matriculaModel;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 
 
     @FXML
     void MouseClicked(MouseEvent event) {
         try {
-            StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
+            StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,7 +70,7 @@ public class MainController implements Initializable{
         
         if (event.getSource().equals(btnMenu)) {
             try {
-                StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
             } catch (IOException e) {
 
                 e.printStackTrace();
@@ -81,7 +82,7 @@ public class MainController implements Initializable{
             try {
                 Parent archivoRoot = archivoLoader.load();
                 ArchivoController archivoController = archivoLoader.getController();
-                archivoController.setMatriculaModel(matriculaModel);
+                archivoController.setAlumno(alumno);
                 mainContainer.getChildren().clear();
                 mainContainer.getChildren().add(archivoRoot);
             } catch (IOException e) {
@@ -95,7 +96,7 @@ public class MainController implements Initializable{
             try {
                 Parent statusRoot = statusLoader.load();
                 StatusController statusController = statusLoader.getController();
-                statusController.setMatriculaModel(matriculaModel);
+                statusController.setAlumno(alumno);
                 mainContainer.getChildren().clear();
                 mainContainer.getChildren().add(statusRoot);
             } catch (IOException e) {
@@ -113,7 +114,7 @@ public class MainController implements Initializable{
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 try {
-                    StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
+                    StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -147,7 +148,7 @@ public class MainController implements Initializable{
 
                     Parent archivoRoot = archivoLoader.load();
                     StatusController archivoController = archivoLoader.getController();
-                    archivoController.setMatriculaModel(matriculaModel);
+                    archivoController.setAlumno(alumno);
                     mainContainer.getChildren().clear();
                     mainContainer.getChildren().add(archivoRoot);
 

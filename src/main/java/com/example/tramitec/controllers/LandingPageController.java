@@ -5,12 +5,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.tramitec.util.AlertUtil;
-import com.example.tramitec.util.MatriculaModel;
 import com.example.tramitec.util.StageLoaderMatricula;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
-import com.example.tramitec.model.AlumnoDAO;
+
+import com.example.tramitec.model.Alumno;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,12 +44,10 @@ public class LandingPageController implements Initializable {
     @FXML
     private ImageView logoHome;
 
-    private MatriculaModel matriculaModel;
+    private Alumno alumno;
 
-    private AlumnoDAO ADAO = new AlumnoDAO();
-
-    public void setMatriculaModel(MatriculaModel matriculaModel) {
-        this.matriculaModel = matriculaModel;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
 
 
@@ -57,7 +55,7 @@ public class LandingPageController implements Initializable {
     void clickBtn(ActionEvent event) {
         if (event.getSource().equals(btnService)) {
             try {
-                StageLoaderMatricula.load("viewMain.fxml", event, matriculaModel);
+                StageLoaderMatricula.load("viewMain.fxml", event, alumno);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -76,7 +74,7 @@ public class LandingPageController implements Initializable {
     @FXML
     void clickLogo(MouseEvent event) {
         try {
-            StageLoaderMatricula.load("viewLandingPage.fxml", event, matriculaModel);
+            StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,10 +91,15 @@ public class LandingPageController implements Initializable {
             }
     
             Platform.runLater(() -> {
-                LabelNombre.setText(String.valueOf(ADAO.getNombre(matriculaModel.getMatricula())));
-                LabelControl.setText(String.valueOf(matriculaModel.getMatricula()));
-                LabelCarrera.setText(String.valueOf(ADAO.getCarrera(matriculaModel.getMatricula())));
-                LabelCorreo.setText(String.valueOf(ADAO.getCorreo(matriculaModel.getMatricula())));
+                // LabelNombre.setText(String.valueOf(ADAO.getNombre(matriculaModel.getMatricula())));
+                // LabelControl.setText(String.valueOf(matriculaModel.getMatricula()));
+                // LabelCarrera.setText(String.valueOf(ADAO.getCarrera(matriculaModel.getMatricula())));
+                // LabelCorreo.setText(String.valueOf(ADAO.getCorreo(matriculaModel.getMatricula())));
+
+                LabelNombre.setText(alumno.getNombre());
+                LabelControl.setText(alumno.getNumeroControl());
+                LabelCarrera.setText(alumno.getCarrera());
+                LabelCorreo.setText(alumno.getCorreo());
             });
         });
     

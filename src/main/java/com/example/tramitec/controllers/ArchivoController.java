@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.example.tramitec.util.AlertUtil;
-import com.example.tramitec.util.MatriculaModel;
-import com.example.tramitec.util.StageLoaderMatricula;
-
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -24,7 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import com.example.tramitec.model.AlumnoDAO;
+
+import com.example.tramitec.model.Alumno;
 import com.example.tramitec.model.ArchivosDAO;
 
 public class ArchivoController implements Initializable {
@@ -123,13 +121,11 @@ public class ArchivoController implements Initializable {
     @FXML
     private ImageView logoHome;
 
-    private MatriculaModel matriculaModel;
+    private Alumno alumno;
 
-    public void setMatriculaModel(MatriculaModel matriculaModel) {
-        this.matriculaModel = matriculaModel;
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
     }
-
-    private AlumnoDAO ADAO = new AlumnoDAO();
 
     private ArchivosDAO ARDAO = new ArchivosDAO();
 
@@ -179,7 +175,7 @@ public class ArchivoController implements Initializable {
                 if (file != null) {
                     
                     String nombreArchivo = NombreArchivo + ".pdf";
-                    String nombreAlumno = ADAO.getNombre(matriculaModel.getMatricula());
+                    String nombreAlumno = alumno.getNombre();
                     
 
                     // FileSystemView fileSystemView = FileSystemView.getFileSystemView();
@@ -195,7 +191,7 @@ public class ArchivoController implements Initializable {
                     if (file.renameTo(Destino)) {
                         labelSubir.setStyle("-fx-background-color: #5CCF52; -fx-text-fill: white;");
                         //Query de cargado de archivo
-                        ARDAO.setArchivo(matriculaModel.getMatricula(), Destino.getAbsolutePath(), id_archivo);
+                        ARDAO.setArchivo(alumno.getNumeroControl(), Destino.getAbsolutePath(), id_archivo);
 
                         botonSubirArchivo.setDisable(true);
                         imageView.setDisable(false);
@@ -218,12 +214,12 @@ public class ArchivoController implements Initializable {
 
 
     private void BorrarArchivo(ImageView imageView, Label labelSubir, Button botonSubirArchivo, int idRegistro) {
-        String rutaArchivo = ARDAO.getRutaArchivo(matriculaModel.getMatricula(), idRegistro);
+        String rutaArchivo = ARDAO.getRutaArchivo(alumno.getNumeroControl(), idRegistro);
         File archivo = new File(rutaArchivo);
         
         if (archivo.delete()) {
             // Eliminación exitosa del archivo
-            ARDAO.deleteArchivo(matriculaModel.getMatricula(), idRegistro);
+            ARDAO.deleteArchivo(alumno.getNumeroControl(), idRegistro);
             labelSubir.setStyle("-fx-background-color: #EB4545; -fx-text-fill: white;");
             botonSubirArchivo.setDisable(false);
             imageView.setDisable(true);
@@ -272,25 +268,25 @@ public class ArchivoController implements Initializable {
     
             Platform.runLater(() -> {
                 List<String> estadoList = new ArrayList<>(Arrays.asList(
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 1),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 2),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 3),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 4),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 5),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 6),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 7),
-                        ARDAO.getEstado(matriculaModel.getMatricula(), 8)
+                        ARDAO.getEstado(alumno.getNumeroControl(), 1),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 2),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 3),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 4),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 5),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 6),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 7),
+                        ARDAO.getEstado(alumno.getNumeroControl(), 8)
                 ));
     
                 List<Boolean> aprovadoList = new ArrayList<>(Arrays.asList(
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 1),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 2),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 3),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 4),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 5),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 6),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 7),
-                        ARDAO.getStatusAprovado(matriculaModel.getMatricula(), 8)
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 1),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 2),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 3),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 4),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 5),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 6),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 7),
+                        ARDAO.getStatusAprovado(alumno.getNumeroControl(), 8)
                 ));
     
                 List<Label> labelList = new ArrayList<>(Arrays.asList(
