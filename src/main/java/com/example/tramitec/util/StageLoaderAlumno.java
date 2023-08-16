@@ -15,7 +15,7 @@ import com.example.tramitec.controllers.MainController;
 import com.example.tramitec.controllers.StatusController;
 import com.example.tramitec.model.Alumno;
 
-public class StageLoaderMatricula {
+public class StageLoaderAlumno {
 
     public static void load(String url, Event event, Alumno alumno) throws IOException {
         Object eventSource = event.getSource();

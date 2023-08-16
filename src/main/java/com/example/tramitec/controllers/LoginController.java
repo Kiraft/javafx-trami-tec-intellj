@@ -1,14 +1,22 @@
 package com.example.tramitec.controllers;
 import com.example.tramitec.util.AlertUtil;
-import com.example.tramitec.util.StageLoaderMatricula;
+import com.example.tramitec.util.StageLoaderAlumno;
 import com.example.tramitec.model.Alumno;
 import com.example.tramitec.model.implementations.AlumnoRepositoryImplement;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -38,7 +46,7 @@ public class LoginController {
     private Pane containerRegister;
 
     @FXML
-    private TextField txtCarrera;
+    private ComboBox<?> boxCarrera;
 
     @FXML
     private TextField txtEmail;
@@ -57,6 +65,15 @@ public class LoginController {
 
     @FXML
     private TextField txtUser;
+
+    private String[] arrCarreras = {"Ing. Sistemas Computacionales", "Ing. Electrica", "Ing. Mecatronica"};
+
+    public void loadCarrerasInComboBox(){
+
+        List<String> ListCarreras = new ArrayList<>(Arrays.asList(arrCarreras));
+        ObservableList ObservableListCarrera = FXCollections.observableArrayList(ListCarreras);
+        boxCarrera.setItems(ObservableListCarrera);
+    }
 
     AlumnoRepositoryImplement rp = new AlumnoRepositoryImplement();
 
@@ -124,20 +141,21 @@ public class LoginController {
         containerRegister.setVisible(true);
         btnSwitchRegister.setStyle("-fx-background-color: #1B396A;");
         btnSwitchLogin.setStyle("-fx-background-color: #343131;");
+        loadCarrerasInComboBox();
     }
     //Esta funcion maneja la logica de mandar los datos de los formularios a la base de datos
     private void handleRegister() {
-        if (!txtNombre.getText().isEmpty() && !txtNumeroControl.getText().isEmpty() && !txtNewPassword.getText().isEmpty() && !txtEmail.getText().isEmpty() && !txtCarrera.getText().isEmpty()) {
+        if (!txtNombre.getText().isEmpty() && !txtNumeroControl.getText().isEmpty() && !txtNewPassword.getText().isEmpty() 
+            && !txtEmail.getText().isEmpty() && boxCarrera.getValue() != null) {
 
             if (txtNewPassword.getText().length() > 5) {
-            Alumno a = new Alumno();
-            a.setNombre(txtNombre.getText());
-            a.setNumeroControl(txtNumeroControl.getText());
-            a.setCorreo(txtEmail.getText());
-            a.setPassword(txtNewPassword.getText());
-            a.setCarrera(txtCarrera.getText());
 
-            System.out.println(rp.porMatricula(txtNumeroControl.getText()));
+                Alumno a = new Alumno();
+                a.setNombre(txtNombre.getText());
+                a.setNumeroControl(txtNumeroControl.getText());
+                a.setCorreo(txtEmail.getText());
+                a.setPassword(txtNewPassword.getText());
+                a.setCarrera((String) boxCarrera.getValue());
 
                 if (rp.porMatricula(txtNumeroControl.getText()) == null) {
                     if (rp.porCorreo(txtEmail.getText()) == null) {
@@ -178,7 +196,7 @@ public class LoginController {
                 if (state == 1) {
                     try {
                         // MatriculaModel matriculaModel = new MatriculaModel(matricula);
-                        StageLoaderMatricula.load("viewLandingPage.fxml", event, rp.porMatricula(matricula));
+                        StageLoaderAlumno.load("viewLandingPage.fxml", event, rp.porMatricula(matricula));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -202,7 +220,7 @@ public class LoginController {
         txtNumeroControl.clear();
         txtNewPassword.clear();
         txtEmail.clear();
-        txtCarrera.clear();
+        boxCarrera.setValue(null);
     }
 
     // @FXML

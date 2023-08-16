@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.tramitec.util.AlertUtil;
-import com.example.tramitec.util.StageLoaderMatricula;
+import com.example.tramitec.util.StageLoaderAlumno;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
@@ -55,13 +55,13 @@ public class LandingPageController implements Initializable {
     void clickBtn(ActionEvent event) {
         if (event.getSource().equals(btnService)) {
             try {
-                StageLoaderMatricula.load("viewMain.fxml", event, alumno);
+                StageLoaderAlumno.load("viewMain.fxml", event, alumno);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (event.getSource().equals(btnCerrar)) {
                 try {
-                    StageLoaderMatricula.load("ViewLogin.fxml", event, null);
+                    StageLoaderAlumno.load("ViewLogin.fxml", event, null);
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -74,7 +74,7 @@ public class LandingPageController implements Initializable {
     @FXML
     void clickLogo(MouseEvent event) {
         try {
-            StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
+            StageLoaderAlumno.load("viewLandingPage.fxml", event, alumno);
         } catch (IOException e) {
             e.printStackTrace();
         }

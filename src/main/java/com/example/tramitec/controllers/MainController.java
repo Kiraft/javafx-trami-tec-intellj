@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import com.example.tramitec.App;
 import com.example.tramitec.model.Alumno;
 import com.example.tramitec.util.*;
-import com.example.tramitec.util.StageLoaderMatricula;
+import com.example.tramitec.util.StageLoaderAlumno;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -59,7 +59,7 @@ public class MainController implements Initializable{
     @FXML
     void MouseClicked(MouseEvent event) {
         try {
-            StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
+            StageLoaderAlumno.load("viewLandingPage.fxml", event, alumno);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class MainController implements Initializable{
         
         if (event.getSource().equals(btnMenu)) {
             try {
-                StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
+                StageLoaderAlumno.load("viewLandingPage.fxml", event, alumno);
             } catch (IOException e) {
 
                 e.printStackTrace();
@@ -114,7 +114,7 @@ public class MainController implements Initializable{
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 try {
-                    StageLoaderMatricula.load("viewLandingPage.fxml", event, alumno);
+                    StageLoaderAlumno.load("viewLandingPage.fxml", event, alumno);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -122,7 +122,7 @@ public class MainController implements Initializable{
 
         }else {
             try {
-                StageLoaderMatricula.load("ViewLogin.fxml", event, null);
+                StageLoaderAlumno.load("ViewLogin.fxml", event, null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
