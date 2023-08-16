@@ -1,4 +1,4 @@
-package com.example.tramitec.model;
+package com.example.tramitec.model.implementations;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.example.tramitec.interfaces.Repository;
+import com.example.tramitec.model.Alumno;
+import com.example.tramitec.model.interfaces.Repository;
+import com.example.tramitec.util.ConexionDB;
 
 public class AlumnoRepositoryImplement implements Repository<Alumno> {
 
@@ -47,6 +49,29 @@ public class AlumnoRepositoryImplement implements Repository<Alumno> {
         }
         return a;
         
+    }
+
+    public int login(String matricula, String password) {
+        int state = -1;
+
+        try (PreparedStatement pst = getConnection().prepareStatement("SELECT * FROM alumnos WHERE numero_control=? AND password=?")){
+
+            pst.setString(1, matricula);
+            pst.setString(2, password);
+
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    state = 1;
+                } else {
+                    state = 0;
+                }
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return state;
     }
 
     public Alumno porCorreo(String correo) {

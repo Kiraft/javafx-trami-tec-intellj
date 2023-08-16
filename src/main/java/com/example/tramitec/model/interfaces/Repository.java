@@ -1,4 +1,4 @@
-package com.example.tramitec.interfaces;
+package com.example.tramitec.model.interfaces;
 
 import java.util.List;
 

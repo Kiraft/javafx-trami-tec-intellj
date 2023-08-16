@@ -1,5 +1,5 @@
 
-package com.example.tramitec.model;
+package com.example.tramitec.ignore;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,36 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+import com.example.tramitec.util.ConexionDB;
+
 
 public class AlumnoDAO {
 
     private Connection getConnection() throws SQLException {
         return ConexionDB.getInstance();
     }
-    public int login(String matricula, String password) {
-        int state = -1;
-
-        try (PreparedStatement pst = getConnection().prepareStatement("SELECT * FROM alumnos WHERE numero_control=? AND password=?")){
-
-            pst.setString(1, matricula);
-            pst.setString(2, password);
-
-            try (ResultSet rs = pst.executeQuery()) {
-                if (rs.next()) {
-                    state = 1;
-                } else {
-                    state = 0;
-                }
-            }
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return state;
-    }
-
-
+    
 
     public String getNombre(String matricula) {
 

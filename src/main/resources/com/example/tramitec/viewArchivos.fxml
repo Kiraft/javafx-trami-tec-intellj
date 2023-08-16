@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tramitec.controllers.ArchivoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tramitec.controllers.ArchivoController">
    <children>
-      <Pane layoutX="208.0" layoutY="124.0" prefHeight="481.0" prefWidth="483.0" style="-fx-background-color: #1B396A; -fx-background-radius: 20px;">
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="481.0" prefWidth="483.0" style="-fx-background-color: #1B396A; -fx-background-radius: 20px;">
          <children>
             <Label alignment="CENTER" layoutX="36.0" layoutY="22.0" prefHeight="43.0" prefWidth="414.0" style="-fx-background-color: WHITE; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 6;" text="SERVICIO SOCIAL ">
                <font>
@@ -88,84 +88,45 @@
                </font></Label>
             <ImageView fx:id="imgtrash1" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="96.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash2" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="141.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash3" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="184.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash4" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="226.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash5" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="267.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash6" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="311.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash7" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="354.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgtrash8" disable="true" fitHeight="43.0" fitWidth="39.0" layoutX="424.0" layoutY="396.0" onMouseClicked="#trashClic" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/trashicon.png" />
+                  <Image url="@../../../assets/trashicon.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Button fx:id="btnMenu" layoutX="45.0" layoutY="124.0" mnemonicParsing="false" onAction="#clickBtn" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: FFFFFF; -fx-border-color: #1B396A; -fx-border-width: 2;" text="Menu" textFill="#1b0000">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnSubir" layoutX="45.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickBtn" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #1B396A; -fx-border-width: 2; -fx-border-color: black;" text="SUBIR DOCUMENTOS" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="9.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnMyDocs" layoutX="45.0" layoutY="236.0" mnemonicParsing="false" onAction="#clickBtn" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #1B396A; -fx-border-color: black; -fx-border-width: 2;" text="MIS DOCUMENTOS" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="9.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnFinish" layoutX="45.0" layoutY="292.0" mnemonicParsing="false" onAction="#clickBtn" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #1B396A; -fx-border-color: black; -fx-border-width: 2;" text="FINALIZAR TRAMITE" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="9.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnClose" layoutX="45.0" layoutY="348.0" mnemonicParsing="false" onAction="#clickBtn" prefHeight="56.0" prefWidth="123.0" style="-fx-background-color: #1B396A; -fx-border-color: black; -fx-border-width: 2;" text="CERRAR SESION" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="9.0" />
-         </font>
-      </Button>
-      <Pane layoutX="79.0" layoutY="22.0" prefHeight="56.0" prefWidth="669.0" style="-fx-background-color: #1B396A; -fx-background-radius: 20;">
-         <children>
-            <Label layoutX="153.0" layoutY="13.0" text="TECNOLOGICO NACIONAL DE MEXICO" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <ImageView fx:id="logoHome" fitHeight="82.0" fitWidth="102.0" layoutX="38.0" layoutY="9.0" onMouseClicked="#MouseClicked" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../assets/tecnm.png" />
-         </image>
-      </ImageView>
    </children>
 </Pane>

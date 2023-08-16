@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+import com.example.tramitec.util.ConexionDB;
+
 public class ArchivosDAO {
 
 

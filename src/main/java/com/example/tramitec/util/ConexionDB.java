@@ -1,4 +1,4 @@
-package com.example.tramitec.model;
+package com.example.tramitec.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -13,10 +13,11 @@ import com.example.tramitec.controllers.ArchivoController;
 import com.example.tramitec.controllers.LandingPageController;
 import com.example.tramitec.controllers.MainController;
 import com.example.tramitec.controllers.StatusController;
+import com.example.tramitec.model.Alumno;
 
 public class StageLoaderMatricula {
 
-    public static void load(String url, Event event, MatriculaModel matriculaModel) throws IOException {
+    public static void load(String url, Event event, Alumno alumno) throws IOException {
         Object eventSource = event.getSource();
         Node sourceAsNode = (Node) eventSource;
         Scene oldScene = sourceAsNode.getScene();
@@ -30,21 +31,21 @@ public class StageLoaderMatricula {
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
-        if (matriculaModel != null) {
+        if (alumno != null) {
             Object controller = loader.getController();
 
             if (controller instanceof LandingPageController) {
                 LandingPageController landingPageController = (LandingPageController) controller;
-                landingPageController.setMatriculaModel(matriculaModel);
+                landingPageController.setAlumno(alumno);
             } else if (controller instanceof MainController) {
                 MainController archivoController = (MainController) controller;
-                archivoController.setMatriculaModel(matriculaModel);
+                archivoController.setAlumno(alumno);
             } else if (controller instanceof StatusController) {
                 StatusController statusController = (StatusController) controller;
-                statusController.setMatriculaModel(matriculaModel);
+                statusController.setAlumno(alumno);
             } else if (controller instanceof ArchivoController) {
                 ArchivoController archivoController = (ArchivoController) controller;
-                archivoController.setMatriculaModel(matriculaModel);
+                archivoController.setAlumno(alumno);
             }
         }
 
