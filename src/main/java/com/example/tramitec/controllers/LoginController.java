@@ -2,7 +2,10 @@ package com.example.tramitec.controllers;
 import com.example.tramitec.util.AlertUtil;
 import com.example.tramitec.util.StageLoaderAlumno;
 import com.example.tramitec.model.Alumno;
+import com.example.tramitec.model.Carrera;
 import com.example.tramitec.model.implementations.AlumnoRepositoryImplement;
+import com.example.tramitec.model.implementations.CarreraRepositoryImplement;
+import com.example.tramitec.model.interfaces.Repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,17 +68,26 @@ public class LoginController {
 
     @FXML
     private TextField txtUser;
+    
+    AlumnoRepositoryImplement rp = new AlumnoRepositoryImplement();
 
-    private String[] arrCarreras = {"Ing. Sistemas Computacionales", "Ing. Electrica", "Ing. Mecatronica"};
+    CarreraRepositoryImplement cp = new CarreraRepositoryImplement();
+
+    // private String[] arrCarreras = {"Ing. Sistemas Computacionales", "Ing. Electrica", "Ing. Mecatronica"};
 
     public void loadCarrerasInComboBox(){
+        List<String> carreras = new ArrayList<>();
 
-        List<String> ListCarreras = new ArrayList<>(Arrays.asList(arrCarreras));
-        ObservableList ObservableListCarrera = FXCollections.observableArrayList(ListCarreras);
+        cp.listar().forEach(item -> {
+            String c;
+            c = item.getCarrera();
+            carreras.add(c);
+        });
+
+        ObservableList ObservableListCarrera = FXCollections.observableArrayList(carreras);
         boxCarrera.setItems(ObservableListCarrera);
     }
 
-    AlumnoRepositoryImplement rp = new AlumnoRepositoryImplement();
 
 
     @FXML

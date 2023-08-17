@@ -14,6 +14,11 @@ CREATE TABLE alumnos (
     carrera VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE carreras (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    carrera VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE tipos_archivo (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre_archivo VARCHAR(255)  NOT NULL
@@ -30,7 +35,7 @@ CREATE TABLE archivos (
     FOREIGN KEY (alumno_id) REFERENCES alumnos(id),
     FOREIGN KEY (tipos_archivo_id) REFERENCES tipos_archivo(id)
 );
-
+INSERT INTO carreras(carrera) VALUES ("Ing. Sistemas Computacionales"), ("Ing. Mecatronica");
 INSERT INTO alumnos (nombres, numero_control, correo, password, carrera) VALUES 
     (
         "Jonathan Osvaldo",  
@@ -86,4 +91,3 @@ INSERT INTO tipos_archivo (nombre_archivo) VALUES
     (
         "reporte final de actividad"
     );
-
