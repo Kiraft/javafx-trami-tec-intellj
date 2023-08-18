@@ -76,15 +76,15 @@ public class LoginController {
     // private String[] arrCarreras = {"Ing. Sistemas Computacionales", "Ing. Electrica", "Ing. Mecatronica"};
 
     public void loadCarrerasInComboBox(){
-        List<String> carreras = new ArrayList<>();
+        // List<String> carreras = new ArrayList<>();
 
-        cp.listar().forEach(item -> {
-            String c;
-            c = item.getCarrera();
-            carreras.add(c);
-        });
+        // cp.listar().forEach(item -> {
+        //     String c;
+        //     c = item.getCarrera();
+        //     carreras.add(c);
+        // });
 
-        ObservableList ObservableListCarrera = FXCollections.observableArrayList(carreras);
+        ObservableList ObservableListCarrera = FXCollections.observableArrayList(cp.listar());
         boxCarrera.setItems(ObservableListCarrera);
     }
 
@@ -167,7 +167,7 @@ public class LoginController {
                 a.setNumeroControl(txtNumeroControl.getText());
                 a.setCorreo(txtEmail.getText());
                 a.setPassword(txtNewPassword.getText());
-                a.setCarrera((String) boxCarrera.getValue());
+                a.setCarrera((Carrera) boxCarrera.getValue());
 
                 if (rp.porMatricula(txtNumeroControl.getText()) == null) {
                     if (rp.porCorreo(txtEmail.getText()) == null) {

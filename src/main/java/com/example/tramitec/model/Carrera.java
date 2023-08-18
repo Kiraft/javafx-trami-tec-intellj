@@ -31,4 +31,10 @@ public class Carrera {
         this.carrera = carrera;
     }
 
+
+    @Override
+    public String toString() {
+        return getCarrera();
+    }
+
 }

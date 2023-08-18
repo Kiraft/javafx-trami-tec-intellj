@@ -6,14 +6,14 @@ public class Alumno {
     private String numeroControl;
     private String correo;
     private String password;
-    private String carrera;
+    private Carrera carrera;
 
 
     public Alumno() {
     }
 
 
-    public Alumno(Long id, String nombre, String numeroControl, String correo, String password, String carrera) {
+    public Alumno(Long id, String nombre, String numeroControl, String correo, String password, Carrera carrera) {
         this.id = id;
         this.nombre = nombre;
         this.numeroControl = numeroControl;
@@ -63,11 +63,11 @@ public class Alumno {
         this.password = password;
     }
 
-    public String getCarrera() {
+    public Carrera getCarrera() {
         return this.carrera;
     }
 
-    public void setCarrera(String carrera) {
+    public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
     

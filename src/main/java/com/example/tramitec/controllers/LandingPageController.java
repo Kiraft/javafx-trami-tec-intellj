@@ -98,7 +98,7 @@ public class LandingPageController implements Initializable {
 
                 LabelNombre.setText(alumno.getNombre());
                 LabelControl.setText(alumno.getNumeroControl());
-                LabelCarrera.setText(alumno.getCarrera());
+                LabelCarrera.setText(alumno.getCarrera().getCarrera());
                 LabelCorreo.setText(alumno.getCorreo());
             });
         });
