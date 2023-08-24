@@ -20,9 +20,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 
@@ -31,7 +34,16 @@ public class LoginController {
 
 
     @FXML
+    private ComboBox<?> boxCarrera;
+
+    @FXML
     private Button btnLogin;
+
+    @FXML
+    private Button btnRecoverBack;
+
+    @FXML
+    private Button btnRecoverValidate;
 
     @FXML
     private Button btnRegister;
@@ -46,10 +58,13 @@ public class LoginController {
     private Pane containerLogin;
 
     @FXML
+    private Pane containerRecoverUser;
+
+    @FXML
     private Pane containerRegister;
 
     @FXML
-    private ComboBox<?> boxCarrera;
+    private Label labelRecover;
 
     @FXML
     private TextField txtEmail;
@@ -67,6 +82,12 @@ public class LoginController {
     private PasswordField txtPassword;
 
     @FXML
+    private TextField txtRecoverEmail;
+
+    @FXML
+    private TextField txtRecoverMatricula;
+
+    @FXML
     private TextField txtUser;
     
     AlumnoRepositoryImplement rp = new AlumnoRepositoryImplement();
@@ -74,21 +95,8 @@ public class LoginController {
     CarreraRepositoryImplement cp = new CarreraRepositoryImplement();
 
     // private String[] arrCarreras = {"Ing. Sistemas Computacionales", "Ing. Electrica", "Ing. Mecatronica"};
-
-    public void loadCarrerasInComboBox(){
-        // List<String> carreras = new ArrayList<>();
-
-        // cp.listar().forEach(item -> {
-        //     String c;
-        //     c = item.getCarrera();
-        //     carreras.add(c);
-        // });
-
-        ObservableList ObservableListCarrera = FXCollections.observableArrayList(cp.listar());
-        boxCarrera.setItems(ObservableListCarrera);
-    }
-
-
+    
+    
 
     @FXML
     private void LoginAndRegister(ActionEvent event) {
@@ -114,7 +122,6 @@ public class LoginController {
 
     }
 
-    
     @FXML
     void switchForm(ActionEvent event) {
 
@@ -129,7 +136,7 @@ public class LoginController {
                 break;
             default:
                 break;
-        }
+    }
         
         // if (event.getSource().equals(btnSwitchRegister)) {
         //     showRegisterForm();
@@ -139,6 +146,42 @@ public class LoginController {
         
     }
 
+    @FXML
+    void backLogin(ActionEvent event) {
+        containerRecoverUser.setVisible(false);
+        containerLogin.setVisible(true);
+    }
+
+    @FXML
+    void labelRecover(MouseEvent event) {
+        containerLogin.setVisible(false);
+        containerRecoverUser.setVisible(true);
+        
+    }
+
+    @FXML
+    void inOverMouse(MouseEvent event) {
+        labelRecover.setUnderline(true);
+    }
+
+    @FXML
+    void outOverMouse(MouseEvent event) {
+        labelRecover.setUnderline(false);
+    }
+
+    
+    public void loadCarrerasInComboBox(){
+            // List<String> carreras = new ArrayList<>();
+    
+            // cp.listar().forEach(item -> {
+            //     String c;
+            //     c = item.getCarrera();
+            //     carreras.add(c);
+            // });
+    
+        ObservableList ObservableListCarrera = FXCollections.observableArrayList(cp.listar());
+        boxCarrera.setItems(ObservableListCarrera);
+    }
 
     private void showLoginForm() {
         containerRegister.setVisible(false);
@@ -146,7 +189,6 @@ public class LoginController {
         btnSwitchLogin.setStyle("-fx-background-color: #1B396A;");
         btnSwitchRegister.setStyle("-fx-background-color: #343131;");
     }
-
 
     private void showRegisterForm() {
         containerLogin.setVisible(false);
